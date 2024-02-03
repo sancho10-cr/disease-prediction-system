@@ -1,0 +1,1045 @@
+﻿
+{% extends "basic.html" %}
+{% load static %}
+
+ 
+	{% block head %}
+
+
+{% endblock %}
+
+
+
+
+{% block body %}
+
+
+    
+<div class="jumbotron">
+    <h3 class="display-4">Be your own doctor...</h3>
+    <font color="green"><p class="lead">
+            It might have happened so many times that you or someone yours need doctor’s help immediately,
+             but they are not available due to some reasons.The Disease Prediction system is an end user
+              support and online consultation project. Here, we propose a web application that allow users 
+              to get instant guidance on their disease through an intelligent system. The application is 
+              fed with various details and the disease associated with those details.The application allows
+               user to share their disease related issues.It then processes user specific details to check 
+               for various illness that could be associated with it.Here we use some intelligent data mining
+                techniques to guess the most accurate illness that could be associated with patient’s details.
+                Based on result, patient can contact doctor accordingly for further treatment.</font>
+    
+                
+  
+     {% if user.is_authenticated %}
+
+     
+     {% else %}
+
+      <p class="lead">
+      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target=".bd-example-modal-lg">More Info !</button>
+      </p>
+    
+
+</div>
+ <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Disease prediction</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Feedback</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Doctor Consultation</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+<br><br><br>
+<div class="container mt-5 mb-3" style="width:fit-content;">
+      <center>
+        <h1>Sign-In  As</h1>
+        </center>
+      
+      
+      <form>
+          <div class="container mt-5 mb-5">
+       <div class="row">
+          <div class="col">
+             <a href="{% url 'sign_in_admin' %}">
+      <img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_doctor' %}">
+      <img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+      </a>
+          </div>
+      
+          <div class="col">
+      <a href="{% url 'sign_in_patient' %}">
+      <img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+      </a>
+          </div>
+        </div>
+        </div>
+      </form>
+</div>
+
+
+    
+
+    {% endif %}
+
+<br><br>
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-In  As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5">
+ <div class="row">
+    <div class="col">
+       <a href="{% url 'sign_in_admin' %}">
+<img  alt="admin" src="{% static 'homepage/admin.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'sign_in_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+   
+<center>
+  <h1>Sign-Up  As</h1>
+  </center>
+<br><br>
+
+<center>
+<form>
+    <div class="container mt-5 mb-5 ml-5 mr-5">
+ <div class="row">
+
+    <div class="col">
+<a href="{% url 'signup_doctor' %}">
+<img  alt="doctor" src="{% static 'homepage/doctor.png' %}"  class="img">
+</a>
+    </div>
+
+    <div class="col">
+<a href="{% url 'signup_patient' %}">
+<img  alt="patient" src="{% static 'homepage/patient.png' %}"  class="img">
+</a>
+    </div>
+  </div>
+  </div>
+</form>
+</center>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<br><br><br><br>
+
+
+<center><h2>Our Doctors</h2></center>
+<div class="row mt-5 mb-5">
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">DR. Liz </h5>
+                <img  alt="admin" src="{% static 'homepage/kinuthia3.jpg' %}" width="200" height="270" class="rounded">
+                <p class="card-text">Hive design, Kileleshwa, Westlands </p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">DR. Okello </h5>
+                <img  alt="admin" src="{% static 'homepage/kinuthia2.jpg' %}" width="230" height="270" class="rounded">
+                <p class="card-text">Blizz Healthcare, State House Road, Arche Place KIlimani</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">DR. Kafukuswi</h5>
+                <img  alt="admin" src="{% static 'homepage/kinuthia1.jpg' %}" width="250" height="270" class="rounded">
+                <p class="card-text">Medbook LTD, Buruburu 1, Civil Lines, # Jaipur-302 019.</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br>
+<div class="team-widget-content">
+  <h3 class="title">Experience & Skill</h3>
+  <p>All the doctors available in this platform have high educational backgrounds and work experience hence make work essier to provide services, consoltancy and keep track of  all activies across the system </p>
+  <div class="team-skill-area">
+      <div class="row justify-content-center mb-30-none">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-30">
+              <div class="skill-item">
+                  <div class="progress">
+                      <span class="title timer" data-from="0" data-to="96"
+                          data-speed="1800">96</span>
+                      <div class="overlay"></div>
+                      <div class="left"></div>
+                      <div class="right"></div>
+                  </div>
+                  <span class="sk-name">System Analysis</span>
+              </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-30">
+              <div class="skill-item">
+                  <div class="progress">
+                      <span class="title timer" data-from="0" data-to="85"
+                          data-speed="1800">85</span>
+                      <div class="overlay"></div>
+                      <div class="left"></div>
+                      <div class="right"></div>
+                  </div>
+                  <span class="sk-name">Doctors Analysis</span>
+              </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-30">
+              <div class="skill-item">
+                  <div class="progress">
+                      <span class="title timer" data-from="0" data-to="70"
+                          data-speed="1800">70</span>
+                      <div class="overlay"></div>
+                      <div class="left"></div>
+                      <div class="right"></div>
+                  </div>
+                  <span class="sk-name">  Positive Feedbacks</span>
+              </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-30">
+              <div class="skill-item">
+                  <div class="progress">
+                      <span class="title timer" data-from="0" data-to="65"
+                          data-speed="1800">65</span>
+                      <div class="overlay"></div>
+                      <div class="left"></div>
+                      <div class="right"></div>
+                  </div>
+                  <span class="sk-name">Market Analysis</span>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<br><br><br><br>
+        
+
+<section class="team-section team--style team-details ptb-120">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-xl-12">
+              <div class="team-item" data-aos="zoom-in" data-aos-duration="1200">
+                  <div class="team-thumb">
+                    <img  alt="admin" src="{% static 'homepage/kinuthia4.jpg' %}" width="400" height="340" class="rounded">
+                  </div>
+                  <div class="team-content-area">
+                      <div class="team-content">
+                          <h3 class="title">HIVE DESIGN</h3>
+                          <span class="sub-title">HEALTH CARE SYSTEM</span>
+                          <p> Developed in 2022, It has had a great impact since then, providing a secure services at affordable price</p>
+                          <ul class="team-contact-list">
+                            <p>For More Info:</p>
+                              <li><i class="fas fa-phone-alt"></i>+254 703 84 3069</li>
+                              <li><i class="fas fa-envelope"></i> info@hivedesign.co.ke</li>
+                          </ul>
+                          <div class="team-social-area">
+                              <span>Follow Hive Design</span>
+                              <ul class="team-social">
+                                  <li><a href="#0"><i class="fab fa-facebook-f"></i></a></li>
+                                  <li><a href="#0" class="active"><i class="fab fa-twitter"></i></a></li>
+                                  <li><a href="#0"><i class="fab fa-youtube"></i></a></li>
+                                  <li><a href="#0"><i class="fab fa-instagram"></i></a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="team-widget-area" data-aos="fade-up" data-aos-duration="1200">
+          <div class="team-widget-content">
+              <h3 class="title">  HIVE DESIGN VENCAMP SNIPPET</h3>
+              <p>It all locally started as a Health care Chemist providing generic services and drugs to patients in nairobi. The private enterprise later grew to a greater IPO as a brand
+                because of the runup in technology. We live in a world that norwadays things are done digitally providing and enhancing digital innovation
+               The basis of the system is to predict disease and to provide necessary precaution to the target.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+
+<footer class="footer-section section--bg pt-120">
+  <div class="footer-element" data-aos="fade-left" data-aos-duration="1200">
+  </div>
+  <div class="container">
+      <div class="footer-top-area">
+          <div class="row align-items-end mb-30-none">
+              <div class="col-xl-4 col-lg-3 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <div class="footer-logo">
+                        <img  alt="patient" src="{% static 'hived.png' %}">
+                      </div>
+                      <p>Hive Design was founded in 2022 by a group of professionals who created
+                         an easier way for patients to have a first Aid at there respective Home</p>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <h4 class="widget-title">LOCATED</h4>
+                      <ul class="footer-list">
+                          <li><a href="#0">KIlimani</a></li>
+                          <li><a href="#0">Nyangumi Road</a></li>
+                          <li><a href="#0"> (254) 703 84 3069</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-2 col-lg-3 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <h4 class="widget-title">Kileleshwa</h4>
+                      <ul class="footer-list">
+                          <li><a href="#0">2473 Red Road Ste 98</a></li>
+                          <li><a href="#0">(254) 758 89 0843</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <h4 class="widget-title">Mombasa Road</h4>
+                      <ul class="footer-list">
+                          <li><a href="#0">Siokimau</a></li>
+                          <li><a href="#0">Road 144</a></li>
+                          <li><a href="#0"> (254) 705 43 9898</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom-area">
+          <div class="row mb-30-none">
+              <div class="col-xl-3 col-lg-3 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <h4 class="title">Get started</h4>
+                      <ul class="footer-list">
+                          <li><a href="#0">HIVE DESIGN HK</a></li>
+                          <li><a href="#0">Register</a></li>
+                          <li><a href="#0">Be your own doctor Deals</a></li>
+                          <li><a href="#0">Hive design app</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <h4 class="title">How it works</h4>
+                      <ul class="footer-list">
+                          <li><a href="#0">How it works</a></li>
+                          <li><a href="#0">Ways to Navigate</a></li>
+                          <li><a href="#0">Ways to Consolt</a></li>
+                          <li><a href="#0">Private Hospitals</a></li>
+                          <li><a href="#0">Private Doctors</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-6 mb-30">
+                  <div class="footer-widget">
+                      <h4 class="title">About us</h4>
+                      <ul class="footer-list">
+                          <li><a href="#0">About us</a></li>
+                          <li><a href="#0">News & press</a></li>
+                          <li><a href="#0">Blog</a></li>
+                          <li><a href="#0">FAQs</a></li>
+                          <li><a href="#0">Careers</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-6 mb-30">
+                <div class="footer-widget">
+                    <h4 class="title2">Prediction Sorts</h4>
+                    <img  alt="patient" src="{% static 'hived.png' %}">
+                </div>
+            </div>
+              
+      <br>
+      <br>
+      <br>
+          <p>© 2022 Hive Design professionals. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+      
+    </ul>
+  </div>
+  </div>
+
+  
+ 
+
+
+
+
+
+</div>
+
+<style>
+  .title2{
+    color:white;
+  }
+  .footer-section {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .footer-section .footer-element {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  @media only screen and (max-width: 991px) {
+    .footer-section .footer-element {
+      display: none;
+    }
+  }
+  
+  .footer-top-area {
+    margin-bottom: 40px;
+  }
+  
+  .footer-logo {
+    margin-bottom: 15px;
+  }
+  .footer-logo a {
+    margin: 0;
+  }
+  
+  .footer-widget .title {
+    color: red;
+    position: relative;
+    font-family: "Mulish", sans-serif;
+    font-weight: 800;
+    margin-bottom: 30px;
+  }
+  .footer-widget .title::before {
+    border: 1px solid #dcbb87;
+    bottom: -10px;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 50px;
+    right: 0;
+  }
+  .footer-widget .widget-title {
+    color: #dcbb87;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+  .footer-widget p {
+    color: white;
+  }
+  
+  .footer-list li {
+    color: red;
+    font-size: 15px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+  }
+  .footer-list li:hover {
+    color: whitesmoke;
+    padding-left: 5px;
+  }
+  
+  .footer-bottom-area {
+    border: 1px solid #dcbb87;
+    border-radius: 20px;
+    background-image: url( "{% static 'gray2.jpg' %}");
+    background-attachment: fixed;
+    opacity: 1;
+    background-repeat: no-repeat;
+    
+    background-size:cover;
+    position: relative;
+    z-index: 9;
+    padding: 60px;
+  }
+  @media only screen and (max-width: 991px) {
+    .footer-bottom-area {
+      padding: 30px;
+    }
+  }
+  
+  
+  
+  
+  
+  .copyright-area {
+    padding: 45px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .copyright-area p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #dfdfdf;
+  }
+  @media only screen and (max-width: 991px) {
+    .copyright-area p {
+      margin-top: 15px;
+    }
+  }
+  @media only screen and (max-width: 991px) {
+    .copyright-area {
+      display: block;
+      text-align: center;
+    }
+  }
+  
+  .page-wrapper-two .footer-section {
+    background-color: rgba(220, 187, 135, 0.1);
+  }
+  .page-wrapper-two .footer-section .footer-element {
+    right: 50px;
+    top: -300px;
+    opacity: .3;
+  }
+  .page-wrapper-two .footer-bottom-area {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+  }
+  .page-wrapper-two .footer-widget .title {
+    color: #19232d;
+  }
+  .page-wrapper-two .footer-widget .title::before {
+    border: 1px dashed #dcbb87;
+  }
+  .page-wrapper-two .footer-widget p {
+    color: whitesmoke;
+  }
+  .page-wrapper-two .footer-list li {
+    color: grey;
+    font-weight: 600;
+  }
+  .page-wrapper-two .footer-list li i {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  .page-wrapper-two .footer-list li:hover {
+    color: grey;
+  }
+  .page-wrapper-two .footer-top-widget {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed #707070;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+  }
+  .page-wrapper-two .footer-btn a {
+    display: flex;
+  }
+  .page-wrapper-two .footer-btn a i {
+    font-size: 20px;
+    margin-left: 8px;
+    transition: all 0.5s;
+  }
+  .page-wrapper-two .footer-btn a:hover i {
+    transform: rotate(-150deg);
+  }
+  @media only screen and (max-width: 767px) {
+    .page-wrapper-two .footer-btn a {
+      margin-top: 20px;
+    }
+  }
+  
+  
+  .page-wrapper-two .copyright-area {
+    border-top: 1px dashed #707070;
+    padding: 25px 0;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  .page-wrapper-two .copyright-area p {
+    color: grey;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  @media only screen and (max-width: 991px) {
+    .page-wrapper-two .copyright-area p {
+      font-size: 14px;
+    }
+  }
+  @media only screen and (max-width: 991px) {
+  .team-section .slider-nav-area {
+    display: none;
+  }
+}
+
+.team-slider {
+  overflow: hidden;
+}
+
+.team-item {
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+.team-item:hover .team-social-area {
+  right: 0;
+}
+.team-item .team-social-area {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  background-color: #f5f3f1;
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+
+.team-thumb {
+  background-color: #DDE6EF;
+  text-align: center;
+}
+
+.team-content {
+  background-color: #f5f3f1;
+  padding: 20px;
+  text-align: center;
+}
+.team-content .title {
+  font-family: "Mulish", sans-serif;
+  font-weight: 800;
+}
+.team-content .title a {
+  transition: all 0.5s;
+}
+.team-content .title a:hover {
+  color: #dcbb87;
+}
+.team-content .sub-title {
+  color: #19232d;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.team-social li a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(220, 187, 135, 0.5);
+  color: #dcbb87;
+  font-size: 12px;
+  transition: all 0.3s;
+}
+.team-social li a:hover {
+  color: white;
+  background-color: #dcbb87;
+}
+
+.team-social li + li {
+  margin-top: 8px;
+}
+
+.team--style .section-header-wrapper {
+  position: relative;
+}
+.team--style .section-header-wrapper::after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 50%;
+  height: 1px;
+  background-color: #e5e5e5;
+}
+@media only screen and (max-width: 1199px) {
+  .team--style .section-header-wrapper::after {
+    display: none;
+  }
+}
+.team--style .section-header-wrapper .section-header .section-title {
+  margin-top: -13px;
+}
+
+.team-widget-area .team-widget-content {
+  margin-top: 52px;
+  margin-bottom: 52px;
+}
+.team-widget-area .team-widget-content .title {
+  margin-bottom: 15px;
+  font-weight: 700;
+  margin-top: -5px;
+}
+.team-widget-area .team-widget-content p {
+  line-height: 1.9;
+}
+
+.team-skill-area .skill-item {
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  padding: 40px 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  text-align: center;
+  transition: all 0.5s;
+}
+.team-skill-area .skill-item::before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: #dcbb87;
+  transition: all 0.5s;
+  z-index: -1;
+}
+.team-skill-area .sk-name {
+  margin-top: 25px;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #19232d;
+  font-weight: 800;
+  font-size: 16px;
+}
+.team-skill-area .progress {
+  width: 130px;
+  height: 130px;
+  font-size: 30px;
+  color: #19232d;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  line-height: 130px;
+  margin: 0 auto;
+  background: transparent;
+  display: block;
+}
+
+.team-details .team-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+.team-details .team-thumb {
+  width: 370px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+@media only screen and (max-width: 991px) {
+  .team-details .team-thumb {
+    width: 100%;
+  }
+}
+.team-details .team-content-area {
+  width: calc(100% - 370px);
+  padding-left: 30px;
+}
+@media only screen and (max-width: 991px) {
+  .team-details .team-content-area {
+    width: 100%;
+    padding-left: 0;
+    padding-top: 30px;
+  }
+}
+.team-details .team-content-area .team-content {
+  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.team-details .team-content-area .team-content .title {
+  font-weight: 700;
+}
+.team-details .team-content-area .team-content .sub-title {
+  color: #dcbb87;
+  font-style: normal;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 991px) {
+  .team-details .team-content-area .team-content .sub-title {
+    font-size: 14px;
+  }
+}
+.team-details .team-content-area .team-content .team-contact-list {
+  margin-top: 10px;
+}
+.team-details .team-content-area .team-content .team-contact-list li {
+  color: #19232d;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.team-details .team-content-area .team-content .team-contact-list li i {
+  color: #dcbb87;
+  margin-right: 5px;
+}
+.team-details .team-content-area .team-content .team-social-area {
+  position: unset;
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+}
+.team-details .team-content-area .team-content .team-social-area span {
+  color: #19232d;
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.team-details .team-content-area .team-content .team-social-area .team-social li {
+  display: inline-block;
+}
+.team-details .team-content-area .team-content .team-social-area .team-social li a {
+  border: 1px solid rgba(25, 35, 45, 0.3);
+  color: #19232d;
+}
+.team-details .team-content-area .team-content .team-social-area .team-social li a:hover {
+  border: 1px solid #dcbb87;
+  color: white;
+}
+.team-details .team-content-area .team-content .team-social-area .team-social li + li {
+  margin-top: 0;
+  margin-left: 8px;
+}
+
+.progress::after {
+  content: "%";
+  font-family: "Playfair Display", sans-serif;
+  color: #19232d;
+  font-weight: 600;
+}
+
+.progress .title {
+  position: relative;
+  z-index: 100;
+  font-size: 36px;
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 600;
+  color: #19232d;
+}
+
+.progress .overlay {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: white;
+}
+
+.progress .left, .progress .right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 12px solid #dcbb87;
+  border-radius: 100px 0px 0px 100px;
+  border-right: 0;
+  transform-origin: right;
+}
+
+.progress .left {
+  animation: load1 3s linear forwards;
+}
+
+.progress:nth-of-type(2) .right, .progress:nth-of-type(3) .right {
+  animation: load2 3s linear forwards 3s;
+}
+
+.progress:last-of-type .right, .progress:first-of-type .right {
+  animation: load3 3s linear forwards 3s;
+}
+
+@keyframes load1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes load2 {
+  0% {
+    z-index: 100;
+    transform: rotate(180deg);
+  }
+
+  100% {
+    z-index: 100;
+    transform: rotate(270deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    z-index: 100;
+    transform: rotate(180deg);
+  }
+
+  100% {
+    z-index: 100;
+    transform: rotate(315deg);
+  }
+}
+.card-title{
+  color:green;
+}
+.card-text{
+  color:grey;
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 17px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 40px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+</style>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    
+
+    <script>
+      // Get the button
+      let mybutton = document.getElementById("myBtn");
+      
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+
+
+    
+{% endblock %}
